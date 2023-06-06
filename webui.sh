@@ -169,6 +169,8 @@ then
     if [[ ! -d "${venv_dir}" ]]
     then
         "${python_cmd}" -m venv "${venv_dir}"
+        # temp fix for running webui.sh on a exFAT drive on macos
+        rm ${venv_dir}/lib/python3.10/site-packages/._*.pth
         first_launch=1
     fi
     # shellcheck source=/dev/null
